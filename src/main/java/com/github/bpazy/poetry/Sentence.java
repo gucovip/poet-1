@@ -14,9 +14,10 @@ public class Sentence {
     private List<Word> words = Lists.newArrayList();
 
     public Sentence(String str) {
+        String[] word = PinyinUtil.getPinyin(str).split(",");
+
         for (int i = 0; i < str.length(); i++) {
-            String s = String.valueOf(str.charAt(i));
-            words.add(new Word(s, PinyinUtil.getPinyin(s)));
+            words.add(new Word(String.valueOf(str.charAt(i)), word[i]));
         }
     }
 
